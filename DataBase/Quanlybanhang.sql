@@ -438,3 +438,15 @@ select SUM(ctsp.GiaBan * SoLuong)
                 							join PhieuGiamGia on PhieuGiamGia.MaSanPham = ctsp.MaCTSP
                 where hd.TinhTrang=1 and MONTH(NgayTao) = '11'
 select * from PhieuGiamGia
+update ChiTietSP set SoLuongTon = (SoLuongTon - 300) where MaCTSP = 'SP00001' and 300< SoLuongTon
+
+Select GiaBan,GiaNhap
+from ChiTietSP 
+where MaCTSP = 'SP00001' and 300< SoLuongTon
+
+SELECT MaCTSP,sp.Ten,ms.Ten ,kt.Ten
+                               from ChiTietSP as ctsp join SanPham as sp on ctsp.MaSP = sp.Ma
+                              					join MauSac as ms on ctsp.MaMauSac = ms.Ma
+                             							join KichThuoc as kt on ctsp.MaSize = kt.Ma
+                             							join PhieuGiamGia on PhieuGiamGia.MaSanPham = ctsp.MaCTSP
+                where MaPhieu = 'PGG001'
